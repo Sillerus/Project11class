@@ -1,0 +1,26 @@
+version: '3.4'
+
+services:
+  dash:
+    build:
+      dockerfile: ./dash-board/Dockerfile
+      args:
+        - port=1234
+        - host=0.0.0.0
+    environment:
+      PYTHONDONTWRITEBYTECODE: 1
+      PYTHONUNBUFFERED: 1
+    ports:
+      - "1234:1234"
+    restart: always
+  api:
+    build:
+      dockerfile: ./api/Dockerfile
+    environment:
+      PYTHONDONTWRITEBYTECODE: 1
+      PYTHONUNBUFFERED: 1
+      FLASK_RUN_PORT: 9462
+      FLASK_RUN_HOST: "0.0.0.0"
+    ports:
+      - "9462:9462"
+    restart: always

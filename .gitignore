@@ -1,0 +1,6 @@
+*.DS_Store
+**.idea
+**__pycache__
+parsing/123.csv
+parsing/124.csv
+parsing/result.csv
